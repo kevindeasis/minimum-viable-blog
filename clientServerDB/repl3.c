@@ -31,6 +31,9 @@ typedef enum StatementType_t StatementType;
 
 const uint32_t COLUMN_USERNAME_SIZE = 32;
 const uint32_t COLUMN_EMAIL_SIZE = 255;
+
+
+
 struct Row_t {
 	uint32_t id;
 	char username[COLUMN_USERNAME_SIZE];
@@ -43,6 +46,9 @@ struct Statement_t {
 	Row row_to_insert;  // only used by insert statement
 };
 typedef struct Statement_t Statement;
+
+
+
 
 const uint32_t ID_SIZE = sizeof(((Row*)0)->id);
 const uint32_t USERNAME_SIZE = sizeof(((Row*)0)->username);
@@ -57,11 +63,18 @@ const uint32_t TABLE_MAX_PAGES = 100;
 const uint32_t ROWS_PER_PAGE = PAGE_SIZE / ROW_SIZE;
 const uint32_t TABLE_MAX_ROWS = ROWS_PER_PAGE * TABLE_MAX_PAGES;
 
+
+
+
 struct Table_t {
 	void* pages[TABLE_MAX_PAGES];
 	uint32_t num_rows;
 };
 typedef struct Table_t Table;
+
+
+
+
 
 void print_row(Row* row) {
 	printf("(%d, %s, %s)\n", row->id, row->username, row->email);
