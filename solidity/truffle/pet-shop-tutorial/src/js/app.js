@@ -7,6 +7,7 @@ App = {
     $.getJSON('../pets.json', function(data) {
       var petsRow = $('#petsRow');
       var petTemplate = $('#petTemplate');
+      console.log("get json")
 
       for (i = 0; i < data.length; i ++) {
         petTemplate.find('.panel-title').text(data[i].name);
@@ -19,6 +20,7 @@ App = {
         petsRow.append(petTemplate.html());
       }
     });
+    console.log("init")
 
     return App.initWeb3();
   },
@@ -32,6 +34,7 @@ App = {
       App.web3Provider = new Web3.providers.HttpProvider('http://localhost:7545');
     }
     web3 = new Web3(App.web3Provider);
+    console.log("init web3")
 
     return App.initContract();
   },
@@ -48,12 +51,15 @@ App = {
         // Use our contract to retrieve and mark the adopted pets
         return App.markAdopted();
       });
-
+      console.log("init contract")
     return App.bindEvents();
   },
 
   bindEvents: function() {
+    console.log("bind events")
     $(document).on('click', '.btn-adopt', App.handleAdopt);
+    console.log("bind events")
+
   },
 
   markAdopted: function(adopters, account) {
@@ -75,12 +81,14 @@ App = {
   },
 
   handleAdopt: function(event) {
+    console.log("handle adopt")
     event.preventDefault();
 
     var petId = parseInt($(event.target).data('id'));
 
     var adoptionInstance;
 
+    // cons
     web3.eth.getAccounts(function(error, accounts) {
         if (error) {
           console.log(error);
