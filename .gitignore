@@ -1,7 +1,7 @@
 ## ignoring txt files that has notes, will be added later
 *.txt
 
-solidity/truffle/delegate
+solidity/truffle/delegate/
 
 # Solidity / Truffle
 .gitignore
