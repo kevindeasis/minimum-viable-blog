@@ -24,5 +24,15 @@ Ownable contract
 owner object
 onlyOwner modifier
 
+contract GetPaid is Ownable {
+  function withdraw() external onlyOwner {
+    owner.transfer(this.balance);
+  }
+}
 
+uint itemFee = 0.001 ether;
+msg.sender.transfer(msg.value - itemFee);
+
+uint randNonce = 0;
+uint random = uint()kecca
 # Truffle

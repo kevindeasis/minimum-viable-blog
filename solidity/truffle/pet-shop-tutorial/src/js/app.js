@@ -1,7 +1,7 @@
 App = {
   web3Provider: null,
   contracts: {},
-
+  /Users/kevinjdeasis/Project/minimum-viable-blog/solidity/truffle/pet-shop-tutorial/src/js/app.js
   init: function() {
     // Load pets.
     $.getJSON('../pets.json', function(data) {
